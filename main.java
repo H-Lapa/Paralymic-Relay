@@ -49,24 +49,22 @@ class Main {
 
   public static String notLegalMessage (UniversalRelayTeam team) 
   {
-    //issue here
-    //its the only part thats not working this whole thing
-    String final;
+    String letter = "";
 
-    if (team.leg1 != 11 || team.leg1 != 13) {
-      final = "Leg 1 (T" + team.leg1 + ") is not legal.";
+    if (team.leg1 != 11 && team.leg1 != 13) {
+      letter = "Leg 1 (T" + team.leg1 + ") is not legal.";
     }
-    if (team.leg2 != 61 || team.leg2 != 62) {
-      final = final + "\n Leg 2 (T" + team.leg2 + ") is not legal.";
+    if (team.leg2 != 61 && team.leg2 != 62) {
+      letter = letter + "\n Leg 2 (T" + team.leg2 + ") is not legal.";
     }
-    if (team.leg3 != 35 || team.leg3 != 36) {
-      final = final + "\n Leg 3 (T" + team.leg3 + ") is not legal.";
+    if (team.leg3 != 35 && team.leg3 != 36) {
+      letter = letter + "\n Leg 3 (T" + team.leg3 + ") is not legal.";
     }
-    if (team.leg4 != 51 || team.leg4 != 52) {
-      final = final + "\n Leg 4 (T" + team.leg4 + ") is not legal.";
+    if (team.leg4 != 51 && team.leg4 != 52) {
+      letter = letter + "\n Leg 4 (T" + team.leg4 + ") is not legal.";
     }
 
-    return final;
+    return letter;
   }
 
   public static void question()
@@ -88,7 +86,7 @@ class Main {
     }
 
     System.out.println(getLegs(team));
-    System.our.println(notLegalMessage(team));
+    System.out.println(notLegalMessage(team));
 
 
 
