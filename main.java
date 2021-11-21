@@ -14,27 +14,20 @@ class Main {
     question();
   }
 
-  public static UniversalRelayTeam setCountry(UniversalRelayTeam team, String country) 
-  {
-    team.country = country;
-    return team;
-
-  }
-
   public static UniversalRelayTeam setLeg (UniversalRelayTeam team, int n, int i)
   {
     switch (i) {
       case 1:
-        team.leg1 = n;
+        setleg1(team, n);
         break;
       case 2:
-        team.leg2 = n;
+        setleg2(team, n);
         break;
       case 3:
-        team.leg3 = n;
+        setleg3(team, n);
         break;
       case 4:
-        team.leg4 = n;
+        setleg4(team, n);
         break;
     }
 
@@ -43,7 +36,7 @@ class Main {
 
   public static String getLegs (UniversalRelayTeam team)
   {
-    String x = "The " + team.country + " team is: Leg 1, T" + team.leg1 + "; Leg 2, T" + team.leg2 + "; Leg 3, T" + team.leg3 + "; Leg 4, T" + team.leg4;
+    String x = "The " + getCountry(team) + " team is: Leg 1, T" + getleg1(team) + "; Leg 2, T" + getleg2(team) + "; Leg 3, T" + getleg3(team) + "; Leg 4, T" + getleg4(team);
     return x;
   }
 
@@ -51,17 +44,17 @@ class Main {
   {
     String letter = "";
 
-    if (team.leg1 != 11 && team.leg1 != 13) {
-      letter = "Leg 1 (T" + team.leg1 + ") is not legal.";
+    if (getleg1(team) != 11 && getleg1(team) != 13) {
+      letter = "Leg 1 (T" + getleg1(team) + ") is not legal.";
     }
-    if (team.leg2 != 61 && team.leg2 != 62) {
-      letter = letter + "\n Leg 2 (T" + team.leg2 + ") is not legal.";
+    if (getleg2(team) != 61 && getleg2(team) != 62) {
+      letter = letter + "\n Leg 2 (T" + getleg2(team) + ") is not legal.";
     }
-    if (team.leg3 != 35 && team.leg3 != 36) {
-      letter = letter + "\n Leg 3 (T" + team.leg3 + ") is not legal.";
+    if (getleg3(team) != 35 && getleg3(team) != 36) {
+      letter = letter + "\n Leg 3 (T" + getleg3(team) + ") is not legal.";
     }
-    if (team.leg4 != 51 && team.leg4 != 52) {
-      letter = letter + "\n Leg 4 (T" + team.leg4 + ") is not legal.";
+    if (getleg4(team) != 51 && getleg4(team) != 52) {
+      letter = letter + "\n Leg 4 (T" + getleg4(team) + ") is not legal.";
     }
 
     return letter;
@@ -70,14 +63,12 @@ class Main {
   public static void question()
   {
     Scanner scanner = new Scanner(System.in);
-    System.out.print("What is the classification (maximum points) of this relay event? ");
-    int max = scanner.nextInt();
 
     UniversalRelayTeam team = new UniversalRelayTeam();
 
     System.out.print("What country is the team representing? ");
     String country = scanner.next();
-    team = setCountry(team, country);
+    setCountry(team, country);
 
     for (int i=1; i<=4; i++) {
       System.out.print("What is the disability class for leg " + i +"? T ");
@@ -87,8 +78,56 @@ class Main {
 
     System.out.println(getLegs(team));
     System.out.println(notLegalMessage(team));
+  }
 
+  //accessor methods
+  public static int getleg1 (UniversalRelayTeam x)
+  {
+    return x.leg1;
+  }
 
+  public static int getleg2 (UniversalRelayTeam x)
+  {
+    return x.leg2;
+  }
 
+  public static int getleg3 (UniversalRelayTeam x)
+  {
+    return x.leg3;
+  }
+
+  public static int getleg4 (UniversalRelayTeam x)
+  {
+    return x.leg4;
+  }
+
+  public static String getCountry (UniversalRelayTeam x)
+  {
+    return x.country;
+  }
+
+  public static void setleg1 (UniversalRelayTeam x, int n)
+  {
+    x.leg1 = n;
+  }
+
+  public static void setleg2 (UniversalRelayTeam x, int n)
+  {
+    x.leg2 = n;
+  }
+
+  public static void setleg3 (UniversalRelayTeam x, int n)
+  {
+    x.leg3 = n;
+  }
+  
+  public static void setleg4 (UniversalRelayTeam x, int n)
+  {
+    x.leg4 = n;
+  }
+
+  public static void setCountry(UniversalRelayTeam team, String country) 
+  {
+    team.country = country;
   }
 }
