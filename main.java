@@ -64,11 +64,9 @@ class Main {
   {
     Scanner scanner = new Scanner(System.in);
 
-    UniversalRelayTeam team = new UniversalRelayTeam();
-
     System.out.print("What country is the team representing? ");
     String country = scanner.next();
-    setCountry(team, country);
+    UniversalRelayTeam team = createTeam(country, 0, 0, 0, 0);
 
     for (int i=1; i<=4; i++) {
       System.out.print("What is the disability class for leg " + i +"? T ");
@@ -81,6 +79,8 @@ class Main {
   }
 
   //accessor methods
+
+  //getter methods
   public static int getleg1 (UniversalRelayTeam x)
   {
     return x.leg1;
@@ -106,6 +106,7 @@ class Main {
     return x.country;
   }
 
+  //setter methods
   public static void setleg1 (UniversalRelayTeam x, int n)
   {
     x.leg1 = n;
@@ -129,5 +130,17 @@ class Main {
   public static void setCountry(UniversalRelayTeam team, String country) 
   {
     team.country = country;
+  }
+
+  //intialisation methods
+  public static UniversalRelayTeam createTeam (String country, int leg1, int leg2, int leg3, int leg4)
+  {
+    UniversalRelayTeam team = new UniversalRelayTeam();
+    setCountry(team, country);
+    setleg1(team, leg1);
+    setleg2(team, leg2);
+    setleg3(team, leg3);
+    setleg4(team, leg4);
+    return team;
   }
 }
